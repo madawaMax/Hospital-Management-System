@@ -93,8 +93,8 @@ public class LoginForm extends JFrame {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                int userId = rs.getInt("user_id"); // users table එකේ primary key එක
-                String role = rs.getString("role");  // DB එකේ තියෙන role එක
+                int userId = rs.getInt("user_id"); // 
+                String role = rs.getString("role");  // 
 
                 JOptionPane.showMessageDialog(this,
                         "Login Successful as " + role + "!",
@@ -108,7 +108,7 @@ public class LoginForm extends JFrame {
                 if (role.equalsIgnoreCase("Admin")) {
                     new AdminDashboard(username).setVisible(true);
                 } else if (role.equalsIgnoreCase("Doctor")) {
-                    // Doctor Dashboard එකට userId සහ username pass කිරීම
+                 
                     new DoctorDashboard(userId, username).setVisible(true);
                 } else if (role.equalsIgnoreCase("Staff") || role.equalsIgnoreCase("Receptionist")) {
                     new StaffDashboard(username).setVisible(true);
