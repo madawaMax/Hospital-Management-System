@@ -84,7 +84,8 @@ public class LoginForm extends JFrame {
                 return;
             }
 
-            String query = "SELECT role FROM users WHERE username = ? AND password = ?";
+            // user_id සහ role යන දෙකම Select කරගැනීම
+            String query = "SELECT user_id, role FROM users WHERE username = ? AND password = ?";
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, username);
             stmt.setString(2, password);
@@ -92,25 +93,33 @@ public class LoginForm extends JFrame {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                String role = rs.getString("role"); // DB එකේ තියෙන role එක ගන්නවා (Admin / Doctor / Staff)
+                int userId = rs.getInt("user_id"); // users table එකේ primary key එක
+                String role = rs.getString("role");  // DB එකේ තියෙන role එක
 
                 JOptionPane.showMessageDialog(this,
                         "Login Successful as " + role + "!",
                         "Success",
                         JOptionPane.INFORMATION_MESSAGE);
 
-                this.dispose(); // Login window එක වහනවා
+                // Login Window එක වැසීම
+                this.dispose();
 
                 // Role එක අනුව අදාළ Dashboard එක Open කිරීම
                 if (role.equalsIgnoreCase("Admin")) {
                     new AdminDashboard(username).setVisible(true);
                 } else if (role.equalsIgnoreCase("Doctor")) {
-                    new DoctorDashboard(username).setVisible(true);
+                    // Doctor Dashboard එකට userId සහ username pass කිරීම
+                    new DoctorDashboard(userId, username).setVisible(true);
                 } else if (role.equalsIgnoreCase("Staff") || role.equalsIgnoreCase("Receptionist")) {
                     new StaffDashboard(username).setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Unknown Role Type Assigned!");
                 }
+            } else {
+                JOptionPane.showMessageDialog(this,
+                        "Invalid Username or Password!",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
