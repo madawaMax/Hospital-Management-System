@@ -23,7 +23,7 @@ public class DoctorSchedule extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // ================= 1. HEADER PANEL =================
+        //  HEADER PANEL
         JPanel headerPanel = new JPanel();
         headerPanel.setBackground(new Color(22, 160, 133)); // Teal Theme
         headerPanel.setPreferredSize(new Dimension(900, 50));
@@ -35,7 +35,7 @@ public class DoctorSchedule extends JFrame {
 
         add(headerPanel, BorderLayout.NORTH);
 
-        // ================= 2. LEFT FORM PANEL =================
+        // ================= 2. LEFT FORM PANEL
         JPanel formPanel = new JPanel(new GridLayout(7, 2, 10, 15));
         formPanel.setPreferredSize(new Dimension(360, 400));
         formPanel.setBorder(BorderFactory.createTitledBorder("Schedule Details"));
@@ -100,7 +100,7 @@ public class DoctorSchedule extends JFrame {
 
         add(formPanel, BorderLayout.WEST);
 
-        // ================= 3. RIGHT TABLE PANEL =================
+        //  RIGHT TABLE PANEL =
         String[] columns = {"ID", "Day", "Start Time", "End Time", "Max Patients", "Status"};
         tableModel = new DefaultTableModel(columns, 0);
         scheduleTable = new JTable(tableModel);
@@ -109,7 +109,7 @@ public class DoctorSchedule extends JFrame {
         scrollPane.setBorder(BorderFactory.createTitledBorder("Current Active Schedules"));
         add(scrollPane, BorderLayout.CENTER);
 
-        // ================= 4. BOTTOM PANEL =================
+
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 15, 10));
         btnBack = new JButton("Back to Dashboard");
         btnBack.setBackground(new Color(149, 165, 166));
@@ -118,7 +118,7 @@ public class DoctorSchedule extends JFrame {
 
         add(bottomPanel, BorderLayout.SOUTH);
 
-        // ================= 5. EVENTS & LOGIC =================
+        //  EVENTS & LOGIC
         loadSchedules();
 
         // Table Click Event
@@ -141,7 +141,7 @@ public class DoctorSchedule extends JFrame {
         btnBack.addActionListener(e -> this.dispose());
     }
 
-    // --- DATABASE OPERATIONS ---
+    // DATABASE OPERATIONS
 
     private void loadSchedules() {
         tableModel.setRowCount(0);

@@ -84,7 +84,7 @@ public class LoginForm extends JFrame {
                 return;
             }
 
-            // user_id සහ role යන දෙකම Select කරගැනීම
+
             String query = "SELECT user_id, role FROM users WHERE username = ? AND password = ?";
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, username);
@@ -101,10 +101,10 @@ public class LoginForm extends JFrame {
                         "Success",
                         JOptionPane.INFORMATION_MESSAGE);
 
-                // Login Window එක වැසීම
+                // Login Window
                 this.dispose();
 
-                // Role එක අනුව අදාළ Dashboard එක Open කිරීම
+
                 if (role.equalsIgnoreCase("Admin")) {
                     new AdminDashboard(username).setVisible(true);
                 } else if (role.equalsIgnoreCase("Doctor")) {

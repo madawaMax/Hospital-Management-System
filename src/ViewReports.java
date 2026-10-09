@@ -180,7 +180,7 @@ public class ViewReports extends JFrame {
         }
     }
 
-    // JTable Print Feature (PDF / Printer එකට කෙලින්ම Print දිය හැක)
+
     private void printTable() {
         try {
             boolean complete = reportTable.print(JTable.PrintMode.FIT_WIDTH,

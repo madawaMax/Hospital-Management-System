@@ -21,7 +21,7 @@ public class DoctorDashboard extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // ================= 1. HEADER PANEL =================
+        // HEADER PANEL
         JPanel headerPanel = new JPanel(new BorderLayout());
         headerPanel.setBackground(new Color(46, 204, 113)); // Emerald Green Header
         headerPanel.setPreferredSize(new Dimension(950, 60));
@@ -44,7 +44,7 @@ public class DoctorDashboard extends JFrame {
         headerPanel.add(btnLogout, BorderLayout.EAST);
         add(headerPanel, BorderLayout.NORTH);
 
-        // ================= 2. SIDEBAR MENU =================
+        //  SIDEBAR MENU
         JPanel sidebarPanel = new JPanel(new GridLayout(6, 1, 5, 10));
         sidebarPanel.setBackground(new Color(44, 62, 80));
         sidebarPanel.setPreferredSize(new Dimension(220, 540));
@@ -62,7 +62,7 @@ public class DoctorDashboard extends JFrame {
 
         add(sidebarPanel, BorderLayout.WEST);
 
-        // ================= 3. MAIN CONTENT AREA =================
+        // MAIN CONTENT AREA
         JPanel mainContent = new JPanel(new BorderLayout());
         mainContent.setBackground(new Color(236, 240, 241));
         mainContent.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -87,7 +87,7 @@ public class DoctorDashboard extends JFrame {
         mainContent.add(cardsPanel, BorderLayout.CENTER);
         add(mainContent, BorderLayout.CENTER);
 
-        // ================= 4. ACTION LISTENERS =================
+        //  ACTION LISTENERS
 
         // My Appointments Click -> Open DoctorAppointments with doctorId
         btnAppointments.addActionListener(e -> {
@@ -96,7 +96,7 @@ public class DoctorDashboard extends JFrame {
             frame.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosed(java.awt.event.WindowEvent windowEvent) {
-                    loadDoctorCounts(); // Appointments Close කළ පසු Counts Refresh වේ
+                    loadDoctorCounts(); // Appointments Close ු Counts Refresh
                 }
             });
         });
@@ -112,7 +112,7 @@ public class DoctorDashboard extends JFrame {
             new DoctorSchedule(this.doctorId).setVisible(true);
         });
 
-        // Database Counts Load කිරීම
+        // Database Counts Load
         loadDoctorCounts();
     }
 

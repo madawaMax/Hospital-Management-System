@@ -51,13 +51,13 @@ public class DoctorAppointments extends JFrame {
 
         add(topPanel, BorderLayout.NORTH);
 
-        // Header සහ Filter Panel එකක් ලෙස ඒකාබද්ධ කිරීම
+        // Header  Filter Panel
         JPanel northContainer = new JPanel(new BorderLayout());
         northContainer.add(headerPanel, BorderLayout.NORTH);
         northContainer.add(topPanel, BorderLayout.SOUTH);
         add(northContainer, BorderLayout.NORTH);
 
-        // ================= 3. TABLE PANEL (CENTER) =================
+        // TABLE PANEL (CENTER)
         String[] columns = {"Appointment ID", "Patient Name", "Contact", "Date", "Status"};
         tableModel = new DefaultTableModel(columns, 0);
         appointmentTable = new JTable(tableModel);
@@ -66,7 +66,7 @@ public class DoctorAppointments extends JFrame {
         scrollPane.setBorder(BorderFactory.createTitledBorder("Assigned Appointments List"));
         add(scrollPane, BorderLayout.CENTER);
 
-        // ================= 4. UPDATE STATUS PANEL (SOUTH) =================
+        //  UPDATE STATUS PANEL (SOUTH)
         JPanel updatePanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 10));
         updatePanel.setBorder(BorderFactory.createTitledBorder("Manage Appointment Status"));
         updatePanel.setBackground(new Color(245, 247, 250));
@@ -104,7 +104,7 @@ public class DoctorAppointments extends JFrame {
 
         add(updatePanel, BorderLayout.SOUTH);
 
-        // ================= 5. EVENTS & LOGIC =================
+        //  EVENTS & LOGIC
 
         loadDoctorAppointments();
 
@@ -125,7 +125,7 @@ public class DoctorAppointments extends JFrame {
         btnBack.addActionListener(e -> this.dispose());
     }
 
-    // --- DATABASE OPERATIONS ---
+    // DATABASE OPERATIONS
 
     private void loadDoctorAppointments() {
         tableModel.setRowCount(0);

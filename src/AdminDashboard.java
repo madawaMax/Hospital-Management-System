@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class AdminDashboard extends JFrame {
 
-    // Dynamic Counts පෙන්වීමට Labels සාදාගැනීම
+    // Dynamic Counts
     private JLabel lblDoctorCount;
     private JLabel lblPatientCount;
     private JLabel lblAppointmentCount;
@@ -72,7 +72,7 @@ public class AdminDashboard extends JFrame {
             frame.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosed(java.awt.event.WindowEvent windowEvent) {
-                    loadDashboardCounts(); // Manage Window එක close වෙද්දී counts refresh වේ
+                    loadDashboardCounts(); // Manage Window  close and counts refresh
                 }
             });
         });
@@ -84,7 +84,7 @@ public class AdminDashboard extends JFrame {
             frame.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosed(java.awt.event.WindowEvent windowEvent) {
-                    loadDashboardCounts(); // Patient Window එක Close වුණාම Counts Refresh වේ
+                    loadDashboardCounts(); // Patient Window  Close  Counts Refresh
                 }
             });
         });
@@ -96,7 +96,7 @@ public class AdminDashboard extends JFrame {
             frame.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosed(java.awt.event.WindowEvent windowEvent) {
-                    loadDashboardCounts(); // Appointment Window එක Close වුණාම Counts Refresh වේ
+                    loadDashboardCounts(); // Appointment Window  Close  Counts Refresh
                 }
             });
         });
@@ -121,7 +121,7 @@ public class AdminDashboard extends JFrame {
         cardsPanel.setOpaque(false);
         cardsPanel.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
 
-        // Dynamic Count Labels මුලින් "0" ලෙස සකසයි
+        // Dynamic Count Labels  "0"
         lblDoctorCount = new JLabel("0", SwingConstants.CENTER);
         lblPatientCount = new JLabel("0", SwingConstants.CENTER);
         lblAppointmentCount = new JLabel("0", SwingConstants.CENTER);
@@ -133,7 +133,7 @@ public class AdminDashboard extends JFrame {
         mainContentPanel.add(cardsPanel, BorderLayout.CENTER);
         add(mainContentPanel, BorderLayout.CENTER);
 
-        // Database එකෙන් Counts Load කිරීම
+        // Database  Counts Load
         loadDashboardCounts();
     }
 
@@ -182,7 +182,7 @@ public class AdminDashboard extends JFrame {
                 lblPatientCount.setText(String.valueOf(rsPat.getInt(1)));
             }
 
-            // 3. Appointments Today Count (අද දිනයට අදාළ appointments පමණක්)
+            // 3. Appointments Today Count
             String todayDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
             PreparedStatement stmtApp = conn.prepareStatement("SELECT COUNT(*) FROM appointments WHERE appointment_date = ?");
             stmtApp.setString(1, todayDate);

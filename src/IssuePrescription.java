@@ -25,7 +25,7 @@ public class IssuePrescription extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // ================= 1. HEADER PANEL =================
+        //  HEADER PANEL
         JPanel headerPanel = new JPanel();
         headerPanel.setBackground(new Color(142, 68, 173)); // Purple Theme
         headerPanel.setPreferredSize(new Dimension(950, 50));
@@ -37,7 +37,7 @@ public class IssuePrescription extends JFrame {
 
         add(headerPanel, BorderLayout.NORTH);
 
-        // ================= 2. LEFT PANEL (INPUT FORM) =================
+        // LEFT PANEL (INPUT FORM)
         JPanel leftPanel = new JPanel();
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
         leftPanel.setPreferredSize(new Dimension(450, 550));
@@ -96,7 +96,7 @@ public class IssuePrescription extends JFrame {
 
         add(leftPanel, BorderLayout.WEST);
 
-        // ================= 3. RIGHT PANEL (PRESCRIPTION PREVIEW) =================
+        // RIGHT PANEL (PRESCRIPTION PREVIEW)
         JPanel rightPanel = new JPanel(new BorderLayout());
         rightPanel.setBorder(BorderFactory.createTitledBorder("Prescription Slip Preview"));
 
@@ -109,7 +109,7 @@ public class IssuePrescription extends JFrame {
 
         add(rightPanel, BorderLayout.CENTER);
 
-        // ================= 4. BOTTOM PANEL (BUTTONS) =================
+        //  BOTTOM PANEL (BUTTONS)
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
 
         btnSavePrint = new JButton("Save & Print Prescription");
@@ -133,7 +133,7 @@ public class IssuePrescription extends JFrame {
 
         add(buttonPanel, BorderLayout.SOUTH);
 
-        // ================= 5. EVENTS & LOGIC =================
+        //  EVENTS & LOGIC
         loadPatients();
 
         btnAddMedicine.addActionListener(e -> addMedicineToList());

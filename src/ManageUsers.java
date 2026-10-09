@@ -189,7 +189,7 @@ public class ManageUsers extends JFrame {
             String query;
             PreparedStatement stmt;
 
-            // Password එක අලුතින් Type කර ඇත්නම් එය වෙනස් කරයි, නැතහොත් පැරණි password එක එලෙසම තබයි
+
             if (password.isEmpty()) {
                 query = "UPDATE users SET username=?, role=? WHERE user_id=?";
                 stmt = conn.prepareStatement(query);

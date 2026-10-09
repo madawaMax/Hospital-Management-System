@@ -44,7 +44,7 @@ public class ManageDoctors extends JFrame {
         gbc.gridx = 0; gbc.gridy = 0;
         formPanel.add(new JLabel("Doctor ID:"), gbc);
         txtId = new JTextField(15);
-        txtId.setEditable(false); // ID එක Auto or Manual Table Click එකෙන් ගනී
+        txtId.setEditable(false); //
         gbc.gridx = 1;
         formPanel.add(txtId, gbc);
 
@@ -104,10 +104,10 @@ public class ManageDoctors extends JFrame {
 
         // ================= 4. EVENTS AND LOGIC =================
 
-        // Data Load කිරීම
+
         loadDoctorData();
 
-        // Table Click Event -> Text fields වලට Data පිරීම
+
         doctorTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 int selectedRow = doctorTable.getSelectedRow();
@@ -146,7 +146,7 @@ public class ManageDoctors extends JFrame {
 
     // --- DATABASE OPERATIONS ---
 
-    // 1. Database එකෙන් Table එකට Data Load කිරීම
+
     private void loadDoctorData() {
         tableModel.setRowCount(0);
         try (Connection conn = DBConnection.getConnection()) {
@@ -168,7 +168,7 @@ public class ManageDoctors extends JFrame {
         }
     }
 
-    // 2. Doctor කෙනෙක් Add කිරීම
+
     private void addDoctor() {
         if (txtName.getText().isEmpty() || txtSpecialization.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill required fields!", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -192,7 +192,7 @@ public class ManageDoctors extends JFrame {
         }
     }
 
-    // 3. Doctor Details Update කිරීම
+
     private void updateDoctor() {
         if (txtId.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please select a doctor to update!", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -217,7 +217,7 @@ public class ManageDoctors extends JFrame {
         }
     }
 
-    // 4. Doctor Delete කිරීම
+
     private void deleteDoctor() {
         if (txtId.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please select a doctor to delete!", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -241,7 +241,7 @@ public class ManageDoctors extends JFrame {
         }
     }
 
-    // Fields Clear කිරීම
+
     private void clearFields() {
         txtId.setText("");
         txtName.setText("");

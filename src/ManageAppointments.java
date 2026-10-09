@@ -32,7 +32,7 @@ public class ManageAppointments extends JFrame {
 
         add(headerPanel, BorderLayout.NORTH);
 
-        // ================= 2. FORM INPUT PANEL (LEFT) =================
+        // FORM INPUT PANEL (LEFT)
         JPanel formPanel = new JPanel(new GridBagLayout());
         formPanel.setBorder(BorderFactory.createTitledBorder("Appointment Details"));
         formPanel.setPreferredSize(new Dimension(380, 550));

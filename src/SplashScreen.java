@@ -9,8 +9,8 @@ public class SplashScreen extends JFrame {
         // Window Configurations
         setTitle("Hospital Management System");
         setSize(450, 250);
-        setUndecorated(true); // Title bar (Close, Minimize buttons) අයින් කිරීමට
-        setLocationRelativeTo(null); // Screen එකේ මැදට ගැනීමට
+        setUndecorated(true); // Title bar (Close, Minimize buttons)
+        setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
         // Main Panel Setup
@@ -48,10 +48,10 @@ public class SplashScreen extends JFrame {
 
         try {
             for (int i = 0; i <= 100; i++) {
-                Thread.sleep(30); // Loading speed එක (30ms per 1%)
+                Thread.sleep(30);
                 progressBar.setValue(i);
 
-                // Status text එක වෙනස් කිරීම
+
                 if (i == 20) lblStatus.setText("Connecting to Database...");
                 if (i == 50) lblStatus.setText("Loading Application Modules...");
                 if (i == 80) lblStatus.setText("Launching Login Portal...");
@@ -61,7 +61,7 @@ public class SplashScreen extends JFrame {
             e.printStackTrace();
         }
 
-        // Loading එක 100% වුණු පසු Splash Screen එක Close කර Login Form එක Open කිරීම
+
         this.dispose();
         new LoginForm().setVisible(true);
     }

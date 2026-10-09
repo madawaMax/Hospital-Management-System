@@ -133,7 +133,7 @@ public class PatientHistory extends JFrame {
         btnBack.addActionListener(e -> this.dispose());
     }
 
-    // Patients dropdown එකට DB එකෙන් රෝගීන් Load කිරීම
+
     private void loadPatientDropdown() {
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT id, name FROM patients");
@@ -148,7 +148,7 @@ public class PatientHistory extends JFrame {
         }
     }
 
-    // තෝරාගත් Patient ගේ පැරණි History Load කිරීම
+
     private void loadPatientHistory() {
         tableModel.setRowCount(0);
         if (cmbPatients.getSelectedItem() == null) return;
@@ -181,7 +181,7 @@ public class PatientHistory extends JFrame {
         }
     }
 
-    // අලුත් Medical Record එකක් Save කිරීම
+
     private void saveMedicalRecord() {
         if (cmbPatients.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(this, "Please select a patient first!");
